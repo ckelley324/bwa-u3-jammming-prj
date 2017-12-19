@@ -20,9 +20,12 @@ class App extends Component {
 
   addTrack(track) {
       let tracks = this.state.playlistTracks;
+      if (tracks.find(currentTrack => currentTrack.id === track.id)) {
+        alert('This track is already added!');
+      } else {
       tracks.push(track);
       this.setState({playlistTracks: tracks});
-    
+      }
   }
 
   removeTrack(track) {
